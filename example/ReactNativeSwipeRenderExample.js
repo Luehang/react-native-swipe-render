@@ -91,6 +91,38 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                 <SwipeRender
                     data={testData}
                     renderItem={({ item, index }) => {
+                        if (index === 1) {
+                            return (
+                                <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                                    <Text style={{color: "#fff", fontSize: 25, fontWeight: "bold"}}>
+                                        Any kind of View
+                                    </Text>
+                                    <Footer
+                                        renderPageFooter={(image, i) => {
+                                            return (
+                                                <View style={[styles.footerBottom, styles.colMiddleAlign]}>
+                                                    <TouchableWithoutFeedback
+                                                        onPress={() => {
+                                                            Linking.openURL("https://www.luehangs.site");
+                                                        }}
+                                                    >
+                                                        <Text style={[styles.footerPrimary, { fontWeight: "bold", color: "#BABABA" }]}>
+                                                            www.luehangs.site
+                                                        </Text>
+                                                    </TouchableWithoutFeedback>
+                                                    <Text style={[
+                                                        styles.footerSecondary,
+                                                        { fontWeight: "bold", color: "#DFDFDF" }
+                                                        ]}>
+                                                        Index {index} of {testData.length} pages.
+                                                    </Text>
+                                                </View>
+                                            );
+                                        }}
+                                    />
+                                </View>
+                            );
+                        }
                         return (
                             <View key={index} style={{flex: 1, backgroundColor: "#000"}}>
                                 <Image
@@ -125,7 +157,8 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                         );
                     }}
                     // index={0}
-                    loop={true}
+                    loop={false}
+                    enableAndroidScrollView={false}
                     loadMinimal={true}
                     loadMinimalSize={2}
                 />
