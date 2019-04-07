@@ -11,9 +11,9 @@ An easy and simple to use React Native component that renders swipable performan
 - Supports smart or minimal rendering for **large lists**.
 - Supports two ways of rendering contents. Render using function and data or render React.Element children.
 - Horizontal and vertical paging for both Android and iOS.
-- By default, will enable looping. Can be disabled.
 - Initial index can be placed anywhere. Supporting both Android and iOS.
 - Dynamic index support for iOS.
+- Optional slide looping.
 - Optional automatic slides.
 - Optional alternative usage with Android `ScrollView` instead of `ViewPagerAndroid`.
 - Supports both iOS and Android.

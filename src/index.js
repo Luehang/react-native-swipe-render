@@ -75,7 +75,7 @@ export default class extends Component {
         showsPagination: false,
         showsButtons: false,
         disableNextButton: false,
-        loop: true,
+        loop: false,
         loadMinimal: false,
         loadMinimalSize: 1,
         autoplay: false,
