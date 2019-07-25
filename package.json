@@ -1,5 +1,5 @@
 {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "name": "react-native-swipe-render",
   "description": "An easy and simple to use React Native component that renders swipable performant pages for large lists or content.  Supporting both iOS and Android.  Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).",
   "keywords": [
@@ -22,7 +22,7 @@
     "Lue Hang",
     "luehang"
   ],
-  "homepage": "https://github.com/Luehang/react-native-swipe-render",
+  "homepage": "https://luehangs.site/lue_hang/projects/react-native-swipe-render",
   "author": {
     "name": "Lue Hang",
     "email": "lue_hang@hotmail.com",
