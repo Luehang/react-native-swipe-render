@@ -58,6 +58,117 @@ $ yarn add react-native-swipe-render
 ```
 
 <br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
+## :tada: Usage Example One
+
+Add an ``import`` to the top of the file.  At minimal, place `array` data into the `data` prop and render the pages using the `renderItem` prop.
+
+> If you like [`react-native-swipe-render`](https://github.com/Luehang/react-native-swipe-render), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-swipe-render). Thanks.
+
+```javascript
+import SwipeRender from "react-native-swipe-render";
+import { View, Image } from "react-native";
+
+//...
+render() {
+    return (
+        <SwipeRender
+            data={[
+                { uri: "https://luehangs.site/pic-chat-app-images/pexels-photo-853168.jpeg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/photo-755745.jpeg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/photo-799443.jpeg" }
+            ]}
+            renderItem={({ item, index }) => {
+                return (
+                    <View key={"SwipeRender-slide#" + index} style={{flex: 1, backgroundColor: "#000"}}>
+                        <Image
+                            source={{ uri: item.uri }}
+                            style={{flex: 1}}
+                            resizeMode="contain"
+                        />
+                    </View>
+                );
+            }}
+
+            // OPTIONAL PROP USAGE.
+            index={0} // default 0
+            loop={false} // default false
+            loadMinimal={true} // default false
+            loadMinimalSize={2}
+            enableAndroidScrollView={true} // default false
+            horizontal={true} // default true
+        />
+    );
+}
+//...
+```
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
+## :tada: Usage Example Two
+
+Add an ``import`` to the top of the file.  At minimal, wrap any view in the `<SwipeRender></SwipeRender>`.
+
+> If you like [`react-native-swipe-render`](https://github.com/Luehang/react-native-swipe-render), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-swipe-render). Thanks.
+
+```javascript
+import SwipeRender from "react-native-swipe-render";
+import { View, Image, Text } from "react-native";
+
+//...
+render() {
+    return (
+        <SwipeRender
+            // OPTIONAL PROP USAGE.
+            index={0} // default 0
+            loop={false} // default false
+            loadMinimal={true} // default false
+            loadMinimalSize={2}
+            enableAndroidScrollView={true} // default false
+            horizontal={true} // default true
+        >
+            <View style={{flex: 1, backgroundColor: "#000"}}>
+                <Image
+                    source={{ uri: "https://luehangs.site/pic-chat-app-images/pexels-photo-853168.jpeg" }}
+                    style={{flex: 1}}
+                    resizeMode="contain"
+                />
+            </View>
+            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                <Text style={{color: "blue", fontSize: 25, fontWeight: "bold"}}>
+                    Any kind of View
+                </Text>
+            </View>
+            <View style={{flex: 1, backgroundColor: "#000"}}>
+                <Image
+                    source={{ uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" }}
+                    style={{flex: 1}}
+                    resizeMode="contain"
+                />
+            </View>
+        </SwipeRender>
+    );
+}
+//...
+```
+
+<br/>
 
 ---
 <br/>
