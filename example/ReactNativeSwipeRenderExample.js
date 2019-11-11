@@ -114,7 +114,7 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                                                         styles.footerSecondary,
                                                         { fontWeight: "bold", color: "#DFDFDF" }
                                                         ]}>
-                                                        Index {index} of {testData.length} pages.
+                                                        Index {index} of {testData.length - 1} pages.
                                                     </Text>
                                                 </View>
                                             );
@@ -147,7 +147,7 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                                                     styles.footerSecondary,
                                                     { fontWeight: "bold", color: "#DFDFDF" }
                                                 ]}>
-                                                    Index {index} of {testData.length} pages.
+                                                    Index {index} of {testData.length - 1} pages.
                                                 </Text>
                                             </View>
                                         );
@@ -158,7 +158,8 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                     }}
                     // index={0}
                     loop={false}
-                    enableAndroidScrollView={false}
+                    // horizontal={false}
+                    // enableAndroidScrollView={true}
                     loadMinimal={true}
                     loadMinimalSize={2}
                 />
