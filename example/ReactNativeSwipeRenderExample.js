@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import PropTypes from "prop-types";
 import SwipeRender from "react-native-swipe-render";
+// import SwipeRender from "./src/index";
 
 import testData from "./data";
 
@@ -56,7 +57,7 @@ class Header extends React.PureComponent {
 
 export default class ReactNativeSwipeRenderExample extends React.PureComponent {
     render() {
-        console.log("Data length total: ", testData.length);
+        // console.log("Data length total: ", testData.length);
         return (
             <View
                 style={styles.container}
@@ -219,16 +220,16 @@ const styles = StyleSheet.create({
             ? 20 + 2.5
             : 2.5
     },
-    header: {
-        height: isIPhoneX() ? 88 : 64,
-        backgroundColor: "transparent"
-    },
-    mobileHeader: {
-        width: deviceWidth,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center"
-    },
+    // header: {
+    //     height: isIPhoneX() ? 88 : 64,
+    //     backgroundColor: "transparent"
+    // },
+    // mobileHeader: {
+    //     width: deviceWidth,
+    //     flexDirection: "row",
+    //     alignItems: "center",
+    //     justifyContent: "center"
+    // },
     rowMiddleAlign: {
         flexDirection: "row",
         alignItems: "center"
