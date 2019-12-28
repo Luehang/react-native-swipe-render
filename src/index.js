@@ -115,10 +115,10 @@ export default class extends Component {
         this.loopJumpTimer && clearTimeout(this.loopJumpTimer);
     }
 
-    componentWillUpdate (nextProps, nextState) {
+    componentDidUpdate(prevProps, prevState) {
         // If the index has changed, we notify the parent via the onIndexChanged callback
-        if (this.state.index !== nextState.index) {
-            this.props.onIndexChanged(nextState.index);
+        if (this.state.index !== prevState.index) {
+            this.props.onIndexChanged(this.state.index);
         }
     }
 
