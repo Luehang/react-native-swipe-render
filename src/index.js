@@ -6,11 +6,17 @@ import {
     ScrollView,
     Dimensions,
     TouchableOpacity,
-    ViewPagerAndroid,
     Platform,
     StyleSheet,
     ActivityIndicator
 } from "react-native";
+
+let ViewPagerAndroid;
+if (parseFloat(require("react-native/package.json").version) >= 0.6) {
+    ViewPagerAndroid = require("@react-native-community/viewpager");
+} else {
+    ViewPagerAndroid = require("react-native").ViewPagerAndroid;
+}
 
 export default class extends Component {
     static propTypes = {
