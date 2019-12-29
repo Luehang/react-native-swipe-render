@@ -104,7 +104,7 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
-            enableAndroidScrollView={true} // default true
+            enableAndroidViewPager={false} // default false
             horizontal={true} // default true
         />
     );
@@ -140,7 +140,7 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
-            enableAndroidScrollView={true} // default true
+            enableAndroidViewPager={false} // default false
             horizontal={true} // default true
         >
             <View style={{flex: 1, backgroundColor: "#000"}}>
