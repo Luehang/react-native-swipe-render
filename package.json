@@ -1,5 +1,5 @@
 {
-  "version": "2.1.1",
+  "version": "3.0.0",
   "name": "react-native-swipe-render",
   "description": "An easy and simple to use React Native component that renders swipable performant pages for large lists or content.  Supporting both iOS and Android.  Free and made possible along with costly maintenance and updates by [Lue Hang](https://www.facebook.com/lue.hang) (the author).",
   "keywords": [
