@@ -545,7 +545,7 @@ export default class extends Component {
     }
 
     renderScrollView = pages => {
-        if (enableAndroidViewPager) {
+        if (this.props.enableAndroidViewPager) {
             let ViewPagerAndroid;
             if (parseFloat(require("react-native/package.json").version) >= 0.6) {
                 ViewPagerAndroid = require("@react-native-community/viewpager");
