@@ -23,7 +23,7 @@ export default class extends Component {
         autoplayTimeout: PropTypes.number,
         autoplayDirection: PropTypes.bool,
         onIndexChanged: PropTypes.func,
-        enableAndroidScrollView: PropTypes.bool,
+        enableAndroidViewPager: PropTypes.bool,
         loadMinimal: PropTypes.bool,
         loadMinimalSize: PropTypes.number,
         loadMinimalLoader: PropTypes.element,
@@ -70,7 +70,7 @@ export default class extends Component {
 
     static defaultProps = {
         horizontal: true,
-        enableAndroidScrollView: true,
+        enableAndroidViewPager: false,
         showsPagination: false,
         showsButtons: false,
         disableNextButton: false,
@@ -210,7 +210,7 @@ export default class extends Component {
             state.offset = offset;
         }
 
-        if (Platform.OS === "ios" || this.props.enableAndroidScrollView) {
+        if (Platform.OS === "ios" || !this.props.enableAndroidViewPager) {
             if (this.initialRender && this.state.total > 1) {
                 this.scrollView.scrollTo({...offset, animated: false});
                 this.initialRender = false;
@@ -398,7 +398,7 @@ export default class extends Component {
             y = diff * state.height;
         }
 
-        if (!this.props.enableAndroidScrollView) {
+        if (this.props.enableAndroidViewPager) {
             this.scrollView && this.scrollView[animated ? "setPage" : "setPageWithoutAnimation"](diff);
         } else {
             this.scrollView && this.scrollView.scrollTo({ x, y, animated });
@@ -411,7 +411,7 @@ export default class extends Component {
         });
 
         // trigger onScrollEnd manually in android
-        if (!animated || !this.props.enableAndroidScrollView) {
+        if (!animated || this.props.enableAndroidViewPager) {
             setImmediate(() => {
                 this.onScrollEnd({
                     nativeEvent: {
@@ -545,25 +545,7 @@ export default class extends Component {
     }
 
     renderScrollView = pages => {
-        if (Platform.OS === "ios" || this.props.enableAndroidScrollView) {
-            return (
-                <ScrollView ref={(component) => {
-                        this.refScrollView(component);
-                        this.props.refScrollView &&
-                            this.props.refScrollView(component);
-                    }}
-                    {...this.props}
-                    {...this.scrollViewPropOverrides()}
-                    contentContainerStyle={[styles.wrapperIOS, this.props.style]}
-                    contentOffset={this.state.offset}
-                    onScrollBeginDrag={this.onScrollBegin}
-                    onMomentumScrollEnd={this.onScrollEnd}
-                    onScrollEndDrag={this.onScrollEndDrag}
-                    style={this.props.scrollViewStyle}>
-                    {pages}
-                </ScrollView>
-            );
-        } else {
+        if (enableAndroidViewPager) {
             let ViewPagerAndroid;
             if (parseFloat(require("react-native/package.json").version) >= 0.6) {
                 ViewPagerAndroid = require("@react-native-community/viewpager");
@@ -586,6 +568,23 @@ export default class extends Component {
                 </ViewPagerAndroid>
             );
         }
+        return (
+            <ScrollView ref={(component) => {
+                    this.refScrollView(component);
+                    this.props.refScrollView &&
+                        this.props.refScrollView(component);
+                }}
+                {...this.props}
+                {...this.scrollViewPropOverrides()}
+                contentContainerStyle={[styles.wrapperIOS, this.props.style]}
+                contentOffset={this.state.offset}
+                onScrollBeginDrag={this.onScrollBegin}
+                onMomentumScrollEnd={this.onScrollEnd}
+                onScrollEndDrag={this.onScrollEndDrag}
+                style={this.props.scrollViewStyle}>
+                {pages}
+            </ScrollView>
+        );
     }
 
     render () {
