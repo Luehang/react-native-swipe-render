@@ -49,12 +49,14 @@
     "README.md"
   ],
   "dependencies": {
-    "prop-types": "^15.6.2",
-    "@react-native-community/viewpager": "^3.3.0"
+    "prop-types": "^15.6.2"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "optionalDependencies": {
+    "@react-native-community/viewpager": "*"
   },
   "devDependencies": {
     "react": "16.8.3",
