@@ -98,14 +98,6 @@ export default class extends Component {
     autoplayTimer = null;
     loopJumpTimer = null;
 
-    // TO DO: Find better way to reset state
-    // componentWillReceiveProps (nextProps) {
-    //     // if (!nextProps.autoplay && this.autoplayTimer) {
-    //     //     clearTimeout(this.autoplayTimer);
-    //     // }
-    //     this.setState(this.initState(nextProps, this.props.index !== nextProps.index));
-    // }
-
     componentDidMount () {
         this.autoplay();
     }
@@ -126,6 +118,11 @@ export default class extends Component {
         if (this.props.index !== prevProps.index) {
             this.setState(this.initState(this.props, this.props.index !== prevProps.index));
         }
+        // TO DO: Find better way to reset state when props received
+        // if (!nextProps.autoplay && this.autoplayTimer) {
+        //     clearTimeout(this.autoplayTimer);
+        // }
+        // this.setState(this.initState(nextProps, this.props.index !== nextProps.index));
     }
 
     initState (props, updateIndex = false) {
