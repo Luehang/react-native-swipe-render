@@ -658,9 +658,9 @@ export default class extends Component {
             });
         } else {
             if (!children) {
-                pages = <View style={pageStyle} key={0}>{renderItem({ item: data[0], index: 0 })}</View>
+                pages = <View style={pageStyle} key={0}>{renderItem({ item: data[0], index: 0 })}</View>;
             } else {
-                pages = <View style={pageStyle} key={0}>{children}</View>
+                pages = <View style={pageStyle} key={0}>{children}</View>;
             }
         }
 
@@ -703,6 +703,7 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
     },
 
+    /* eslint-disable react-native/no-unused-styles */
     pagination_x: {
         position: "absolute",
         bottom: 25,
@@ -726,6 +727,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "transparent"
     },
+    /* eslint-enable */
 
     buttonWrapper: {
         backgroundColor: "transparent",
