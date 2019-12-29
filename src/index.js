@@ -563,28 +563,29 @@ export default class extends Component {
                     {pages}
                 </ScrollView>
             );
-        }
-        let ViewPagerAndroid;
-        if (parseFloat(require("react-native/package.json").version) >= 0.6) {
-            ViewPagerAndroid = require("@react-native-community/viewpager");
         } else {
-            ViewPagerAndroid = require("react-native").ViewPagerAndroid;
+            let ViewPagerAndroid;
+            if (parseFloat(require("react-native/package.json").version) >= 0.6) {
+                ViewPagerAndroid = require("@react-native-community/viewpager");
+            } else {
+                ViewPagerAndroid = require("react-native").ViewPagerAndroid;
+            }
+            return (
+                <ViewPagerAndroid ref={(component) => {
+                        this.refScrollView(component);
+                        this.props.refScrollView &&
+                            this.props.refScrollView(component);
+                    }}
+                    {...this.props}
+                    initialPage={this.props.loop ? this.state.index + 1 : this.state.index}
+                    onPageScrollStateChanged={this.onPageScrollStateChanged}
+                    onPageSelected={this.onScrollEnd}
+                    key={pages.length}
+                    style={[styles.wrapperAndroid, this.props.style]}>
+                    {pages}
+                </ViewPagerAndroid>
+            );
         }
-        return (
-            <ViewPagerAndroid ref={(component) => {
-                    this.refScrollView(component);
-                    this.props.refScrollView &&
-                        this.props.refScrollView(component);
-                }}
-                {...this.props}
-                initialPage={this.props.loop ? this.state.index + 1 : this.state.index}
-                onPageScrollStateChanged={this.onPageScrollStateChanged}
-                onPageSelected={this.onScrollEnd}
-                key={pages.length}
-                style={[styles.wrapperAndroid, this.props.style]}>
-                {pages}
-            </ViewPagerAndroid>
-        );
     }
 
     render () {
