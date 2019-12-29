@@ -11,13 +11,6 @@ import {
     ActivityIndicator
 } from "react-native";
 
-let ViewPagerAndroid;
-if (parseFloat(require("react-native/package.json").version) >= 0.6) {
-    ViewPagerAndroid = require("@react-native-community/viewpager");
-} else {
-    ViewPagerAndroid = require("react-native").ViewPagerAndroid;
-}
-
 export default class extends Component {
     static propTypes = {
         data: PropTypes.array,
@@ -77,7 +70,7 @@ export default class extends Component {
 
     static defaultProps = {
         horizontal: true,
-        enableAndroidScrollView: false,
+        enableAndroidScrollView: true,
         showsPagination: false,
         showsButtons: false,
         disableNextButton: false,
@@ -570,6 +563,12 @@ export default class extends Component {
                     {pages}
                 </ScrollView>
             );
+        }
+        let ViewPagerAndroid;
+        if (parseFloat(require("react-native/package.json").version) >= 0.6) {
+            ViewPagerAndroid = require("@react-native-community/viewpager");
+        } else {
+            ViewPagerAndroid = require("react-native").ViewPagerAndroid;
         }
         return (
             <ViewPagerAndroid ref={(component) => {
