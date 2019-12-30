@@ -23,6 +23,7 @@ export default class extends Component {
         autoplayTimeout: PropTypes.number,
         autoplayDirection: PropTypes.bool,
         onIndexChanged: PropTypes.func,
+        onIndexChangeReached: PropTypes.func,
         enableAndroidViewPager: PropTypes.bool,
         loadMinimal: PropTypes.bool,
         loadMinimalSize: PropTypes.number,
@@ -82,6 +83,7 @@ export default class extends Component {
         autoplayDirection: true,
         index: 0,
         onIndexChanged: () => null,
+        onIndexChangeReached: () => null,
         pagingEnabled: true,
         showsHorizontalScrollIndicator: false,
         showsVerticalScrollIndicator: false,
@@ -107,10 +109,16 @@ export default class extends Component {
         this.loopJumpTimer && clearTimeout(this.loopJumpTimer);
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.index !== nextState.index) {
+            this.props.onIndexChanged(nextState.index);
+        }
+        return true;
+    }
+
     componentDidUpdate(prevProps, prevState) {
-        // If the index has changed, we notify the parent via the onIndexChanged callback
         if (this.state.index !== prevState.index) {
-            this.props.onIndexChanged(this.state.index);
+            this.props.onIndexChangeReached(this.state.index);
         }
         if (!this.props.autoplay && this.autoplayTimer) {
             clearTimeout(this.autoplayTimer);
