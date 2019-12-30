@@ -56,7 +56,22 @@ class Header extends React.PureComponent {
 }
 
 export default class ReactNativeSwipeRenderExample extends React.PureComponent {
+    state = {
+        index: 0,
+        data: testData
+    }
+
+    // componentDidMount() {
+    //     setTimeout(() => {
+    //         this.setState({ index: 2 });
+    //     }, 2000);
+    //     setTimeout(() => {
+    //         this.setState({ data: this.state.data.slice(3, 6) });
+    //     }, 4000);
+    // }
+
     render() {
+        const { index, data } = this.state;
         // console.log("Data length total: ", testData.length);
         return (
             <View
@@ -90,7 +105,8 @@ export default class ReactNativeSwipeRenderExample extends React.PureComponent {
                     }}
                 />
                 <SwipeRender
-                    data={testData}
+                    index={index}
+                    data={data}
                     renderItem={({ item, index }) => {
                         if (index === 1) {
                             return (
