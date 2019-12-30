@@ -104,8 +104,12 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
-            enableAndroidViewPager={false} // default false
             horizontal={true} // default true
+
+            enableAndroidViewPager={false} // default false
+            // TO ENABLE AndroidViewPager:
+            // react-native >= 0.60 - install @react-native-community/viewpager separately
+            // react-native < 0.60 - ready to go!
         />
     );
 }
@@ -140,8 +144,12 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
-            enableAndroidViewPager={false} // default false
             horizontal={true} // default true
+
+            enableAndroidViewPager={false} // default false
+            // TO ENABLE AndroidViewPager:
+            // react-native >= 0.60 - install @react-native-community/viewpager separately
+            // react-native < 0.60 - ready to go!
         >
             <View style={{flex: 1, backgroundColor: "#000"}}>
                 <Image
