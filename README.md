@@ -185,7 +185,7 @@ render() {
 <br/>
 <br/>
 
-## :tada: Performance Optimization List Example
+## :watch: Performance Optimization List Example
 
 > If you like [`react-native-swipe-render`](https://github.com/Luehang/react-native-swipe-render), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-swipe-render). Thanks.
 
