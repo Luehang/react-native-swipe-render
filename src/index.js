@@ -408,7 +408,7 @@ export default class extends Component {
         });
 
         // trigger onScrollEnd manually in android
-        if (!animated || this.props.enableAndroidViewPager) {
+        if (!animated || Platform.OS === "android") {
             setImmediate(() => {
                 this.onScrollEnd({
                     nativeEvent: {
