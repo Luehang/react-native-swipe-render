@@ -106,7 +106,7 @@ render() {
             loadMinimalSize={2}
             horizontal={true} // default true
 
-            enableAndroidViewPager={false} // default false
+            enableAndroidViewPager={false} // default ScrollView
             // TO ENABLE AndroidViewPager:
             // react-native >= 0.60 - install @react-native-community/viewpager separately
             // react-native < 0.60 - ready to go!
@@ -146,7 +146,7 @@ render() {
             loadMinimalSize={2}
             horizontal={true} // default true
 
-            enableAndroidViewPager={false} // default false
+            enableAndroidViewPager={false} // default ScrollView
             // TO ENABLE AndroidViewPager:
             // react-native >= 0.60 - install @react-native-community/viewpager separately
             // react-native < 0.60 - ready to go!
@@ -171,6 +171,59 @@ render() {
                 />
             </View>
         </SwipeRender>
+    );
+}
+//...
+```
+
+<br/>
+<br/>
+<br/>
+
+---
+<br/>
+<br/>
+<br/>
+
+## :tada: Performance Optimization List Example
+
+> If you like [`react-native-swipe-render`](https://github.com/Luehang/react-native-swipe-render), please be sure to give it a star at [GitHub](https://github.com/Luehang/react-native-swipe-render). Thanks.
+
+```javascript
+import SwipeRender from "react-native-swipe-render";
+import { View, Image } from "react-native";
+
+//...
+render() {
+    return (
+        <SwipeRender
+            data={[
+                { uri: "https://luehangs.site/pic-chat-app-images/pexels-photo-853168.jpeg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/animals-avian-beach-760984.jpg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/beautiful-beautiful-woman-beauty-9763.jpg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/photo-755745.jpeg" },
+                { uri: "https://luehangs.site/pic-chat-app-images/photo-799443.jpeg" },
+                // Test with 100s to 1000s of data to be rendered
+                // ...
+                // ...
+                // ...
+            ]}
+            renderItem={({ item, index }) => {
+                return (
+                    <View key={index} style={{flex: 1, backgroundColor: "#000"}}>
+                        <Image
+                            source={{ uri: item.uri }}
+                            style={{flex: 1}}
+                            resizeMode="contain"
+                        />
+                    </View>
+                );
+            }}
+            index={3} // Initial index can be placed anywhere.  Dynamic index support for only iOS.
+            loadMinimal={true}
+            loadMinimalSize={2}
+            removeClippedSubviews={true}
+        />
     );
 }
 //...
