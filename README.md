@@ -104,6 +104,7 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
+            autoplay={false} // default false
             horizontal={true} // default true
 
             enableAndroidViewPager={false} // default ScrollView
@@ -144,6 +145,7 @@ render() {
             loop={false} // default false
             loadMinimal={true} // default false
             loadMinimalSize={2}
+            autoplay={false} // default false
             horizontal={true} // default true
 
             enableAndroidViewPager={false} // default ScrollView
