@@ -47,6 +47,25 @@ An easy and simple to use React Native component that renders swipable performan
 
 Type in the following to the command line to install the module.
 
+<br/>
+
+### `react-native` < 0.60
+
+```bash
+$ npm install --save react-native-swipe-render
+```
+
+or
+
+```bash
+$ yarn add react-native-swipe-render
+```
+<br/>
+
+### `react-native` > 0.60
+
+> [`@react-native-community/viewpager`](https://www.npmjs.com/package/@react-native-community/viewpager) is a required installation on **Android**.
+
 ```bash
 $ npm install --save react-native-swipe-render
 ```
