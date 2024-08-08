@@ -427,6 +427,23 @@ export default class extends Component {
         }
     }
 
+    /**
+     * Scroll to index
+     * @param  {number} index offset index
+     * @param  {bool} animated
+     */
+    scrollTo = (targetIndex, animated = true) => {
+      const currentIndex = this.state.index;
+      const indexDiff = targetIndex - currentIndex;
+    
+      if (indexDiff === 0) {
+        // Already at the target index, no need to scroll
+        return;
+      }
+    
+      this.scrollBy(indexDiff, animated);
+    };
+
     scrollViewPropOverrides = () => {
         const props = this.props;
         let overrides = {};
